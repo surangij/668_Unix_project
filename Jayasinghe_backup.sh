@@ -1,4 +1,7 @@
+
+
 #!/bin/bash
+echo surangi 
 
 #The purpose of this bash script is copy all the files in a directory
 # to a special folder called BACKUP_FILES in your home directory.
@@ -15,13 +18,22 @@
 #Part 1: Check if the directory BACKUP_FILES exits
 #  in your home directory. If it does not exist create the directory
 #  and echo "Created BACKUP_FILES in $HOME directory "
+
+BACKUP_DIR="$HOME/BACKUP_FILES"
+
+if [ ! -d "$BACKUP_DIR" ]; then
+    mkdir "$BACKUP_DIR"
+    echo "Created BACKUP_FILES in $HOME directory"
+else
+    echo "Directory $HOME/BACKUP_FILES exists."
+fi
 #  If directory exists, echo "Directory $HOME/BACKUP_FILES exists."
 #  HINT: https://www.cyberciti.biz/faq/howto-check-if-a-directory-exists-in-a-bash-shellscript/
 
 #  Note: you can use the $HOME variable in bash like this $HOME/BACKUP_FILES
 
-echo "Created BACKUP_FILES in $HOME directory"
-echo "Directory $HOME/BACKUP_FILES exists."
+#echo "Created BACKUP_FILES in $HOME directory"
+#echo "Directory $HOME/BACKUP_FILES exists."
 
 
 #Part 2: Write a for loop that copies all the files of a directory into BACKUP_FILES
@@ -29,6 +41,16 @@ echo "Directory $HOME/BACKUP_FILES exists."
 
 #  Hint: see the script 'convert_html_to_php.sh' at:
 #     https://ryanstutorials.net/bash-scripting-tutorial/bash-loops.php
+
+sourceDir= "$1"
+BACKUP_DIR="$HOME/BACKUP_FILES"
+for file in "$source_Dir"/*; do
+	if [ -f "$file" ]; then
+          cp "$file" "BACKUP_DIR"
+          echo "$fn copied to $HOME/BACKUP_FILES"
+        fi
+done 
+
 
 #echo "$fn copied to $HOME/BACKUP_FILES"
 
@@ -46,7 +68,15 @@ echo "Directory $HOME/BACKUP_FILES exists."
 
 
 print_info () {
+   echo 'Output of $HOME/BACKUP_FILES:'
+   ls -al "$HOME/BACKUP_FILES"
+
+   echo "Total disk usage of $HOME/BACKUP_FILES:"
+   du -sh '$HOME/BACKUP_FILES'
 }
+
+print_info
+
 
 #####THE OUTPUT SHOULD BE SOMETHING LIKE THIS#####
 # if TMP has 3 files, then
@@ -65,5 +95,5 @@ print_info () {
 # -rwxr-xr-x   1 kina  staff   100 Feb  7 20:51 my_ls.sh
 # -rwxr-xr-x   1 kina  staff   144 Feb  7 20:51 pysh.py
 # -rwxr-xr-x   1 kina  staff   152 Feb  7 20:51 while-count.sh
-#  12K	/Users/kina/BACKUP_FILES
+# 12K/Users/kina/BACKUP_FILES
 
