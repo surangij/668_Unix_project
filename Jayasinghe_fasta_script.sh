@@ -29,16 +29,16 @@ echo $fn
 ###     The other problem is that it works on the wrong file. Change it so that it works with the user input file (see echo above) (hint: how do you call variables in AWK commands???).
 ###     Change these things and you should get 3 to 4 output files starting with 'myseq'
 
-#awk 'BEGIN {n_seq=0;} /^>/ {if(n_seq%1000==0){file=sprintf("myseq%d.fa",n_seq);} print >> file; n_seq++; next;} { print > file; }' sequences.fna
+awk 'BEGIN {n_seq=0;} /^>/ {if(n_seq%50000==0){file=sprintf("myseq%d.fna",n_seq);} print >> file; n_seq++; next;} { print > file; }' bigdata.fna.gz
 
 
 ### (4) Use grep to check how many fasta sequences are in all of the .fna files and redirect this to a file in RAW_DATA called 'log.txt'
 ###     Hints on grep: -c counts and you can grep multiple files at once using the *. 
 
-
+grep -c "^>" myseq*.fna > RAW_DATA/log.txt
 
 ### (5) Print the output of log.txt to the terminal 
-
+cat RAW_DATA/log.txt
 
 
 ### (6) Below is a for loop and an awk script. The for loop below cycles though every file in the current directory and prints them.
@@ -51,6 +51,7 @@ echo $fn
 
 for f in my*fna
 do
+    awk 'BEGIN{RS=">"}{gsub("\n","",$0); print ">"$0}' "$f" > "${f%.fna}.txt"
     echo $f
 done
 
