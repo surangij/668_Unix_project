@@ -4,7 +4,7 @@
 #!/bin.bash
 echo "It works!"
 
-mkdir ~/RAW_DATA
+mkdir ~/RAW_DATA 
 
 
 ### (1) In your home directory make a directory called RAW_DATA
@@ -38,7 +38,7 @@ source ~/.bashrc
 ###    contents of this directory (the names of the files) into a new file 
 ###    called 'readme.txt' in your home directory
 echo "PATH: $PATH" > ~/readme.txt
-echo "RAW_DATA:" >> ~/readme.txt
+echo "RAW_DATA" >> ~/readme.txt
 ls -1 ~/RAW_DATA >> ~/readme.txt
 ### (7) The last command should output the contents of readme.txt
 ###     to the terminal.
