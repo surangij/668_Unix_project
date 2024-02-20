@@ -6,7 +6,9 @@
 ### NOTE THAT SECTIONS (1) and (2) HAVE ALREADY BEEN COMPLETED so you do not need to edit (1) and (2). 
 
 ### (1) This will ask the user for a fasta file for analysis. The following command, read, reads in user input from the command line.
-###     For this exercise, enter the filename bigdata.fna which should be in your file ~/RAW_DATA
+###     For this exercise, enter the filename bigdata.fna which should be in your file 
+
+cd ~/RAW_DATA
 
 read -p "Enter fasta filename: " fn
 
@@ -29,16 +31,16 @@ echo $fn
 ###     The other problem is that it works on the wrong file. Change it so that it works with the user input file (see echo above) (hint: how do you call variables in AWK commands???).
 ###     Change these things and you should get 3 to 4 output files starting with 'myseq'
 
-awk 'BEGIN {n_seq=0;} /^>/ {if(n_seq%50000==0){file=sprintf("myseq%d.fna",n_seq);} print >> file; n_seq++; next;} { print > file; }' bigdata.fna.gz
+awk 'BEGIN {n_seq=0;} /^>/ {if(n_seq%50000==0){file=sprintf("myseq%d.fna",n_seq);} print >> file; n_seq++; next;} { print > file; }' bigdata.fna
 
 
 ### (4) Use grep to check how many fasta sequences are in all of the .fna files and redirect this to a file in RAW_DATA called 'log.txt'
 ###     Hints on grep: -c counts and you can grep multiple files at once using the *. 
 
-grep -c "^>" myseq*.fna > RAW_DATA/log.txt
+grep -c "^>" myseq*.fna > log.txt
 
 ### (5) Print the output of log.txt to the terminal 
-cat RAW_DATA/log.txt
+cat log.txt
 
 
 ### (6) Below is a for loop and an awk script. The for loop below cycles though every file in the current directory and prints them.
@@ -65,20 +67,23 @@ done
 
 for fn in my*fna.txt
 do
+    grep -c 'CACCCTCTCAGGTCGGCTACGCATCGTCGCC' "$fn" >> log.txt
     echo $fn >> log.txt
 done
 
+cat log.txt
 
 ### (8) Move all the .fna.txt files to the directory ~/P_DATA
 
-
+mv my*fna.txt ~/P_DATA
 
 ### (9) Make a tar archive of the files in P_DATA - call it pdata.tar
+#tar -cf pdata.tar ~/P_DATA
 
-
+tar -cf ~/P_DATA/pdata.tar ~/P_DATA/*
 
 ### (10) Compress pdata.tar
 
-
+gzip ~P_DATA/pdata.tar
 
 
