@@ -31,6 +31,10 @@ mkdir ~/RESULTS
 
 ### (5) Add all three directories to your $PATH: ~/RAW_DATA, ~/P_DATA
 ###     and ~/RESULTS
+export PATH=$PATH:/Users/surangijayasinghe/668_Unix_project/~/RESULTS
+export PATH=$PATH:/Users/surangijayasinghe/668_Unix_project/~/RAW_DATA
+export PATH=$PATH:/Users/surangijayasinghe/668_Unix_project/~/P_DATA
+
 
 echo 'export PATH="$HOME/RAW_DATA:$HOME/P_DATA:$HOME/RESULTS:$PATH"' >> ~/.bashrc
 source ~/.bashrc

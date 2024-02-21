@@ -1,7 +1,7 @@
 
 
 #!/bin/bash
-echo surangi 
+#echo surangi 
 
 #The purpose of this bash script is copy all the files in a directory
 # to a special folder called BACKUP_FILES in your home directory.
@@ -13,12 +13,13 @@ echo surangi
 #The following execute would copy all the files in the TMP directory to
 # BACKUP_FILES in the home directory.
 
-# $./Kelley_backup.sh TMP/
+#$./jayasinghe_backup.sh TMP/
 
 #Part 1: Check if the directory BACKUP_FILES exits
 #  in your home directory. If it does not exist create the directory
 #  and echo "Created BACKUP_FILES in $HOME directory "
 
+#BACKUP_DIR=“/Users/surangijayasinghe/BACKUP_FILES"
 BACKUP_DIR="$HOME/BACKUP_FILES"
 
 if [ ! -d "$BACKUP_DIR" ]; then
@@ -46,13 +47,13 @@ sourceDir= "$1"
 BACKUP_DIR="$HOME/BACKUP_FILES"
 for file in "$source_Dir"/*; do
 	if [ -f "$file" ]; then
-          cp "$file" "BACKUP_DIR"
-          echo "$fn copied to $HOME/BACKUP_FILES"
+          cp "$file" “$BACKUP_DIR"
+          echo “$file copied to $HOME/BACKUP_FILES"
         fi
 done 
 
 
-#echo "$fn copied to $HOME/BACKUP_FILES"
+echo "$file copied to $HOME/BACKUP_FILES"
 
 
 #Part 3: Create a function called print_info that
@@ -68,11 +69,11 @@ done
 
 
 print_info () {
-   echo 'Output of $HOME/BACKUP_FILES:'
-   ls -al "$HOME/BACKUP_FILES"
+ echo “Output of $HOME/BACKUP_FILES:”
+ ls -al "$HOME/BACKUP_FILES"
 
-   echo "Total disk usage of $HOME/BACKUP_FILES:"
-   du -sh '$HOME/BACKUP_FILES'
+ echo "Total disk usage of $HOME/BACKUP_FILES:"
+ du -sh “$HOME/BACKUP_FILES”
 }
 
 print_info

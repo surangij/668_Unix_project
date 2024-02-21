@@ -53,6 +53,7 @@ cat log.txt
 
 for f in my*fna
 do
+
     awk 'BEGIN{RS=">"}{gsub("\n","",$0); print ">"$0}' "$f" > "${f%.fna}.txt"
     echo $f
 done
@@ -78,6 +79,7 @@ cat log.txt
 mv my*fna.txt ~/P_DATA
 
 ### (9) Make a tar archive of the files in P_DATA - call it pdata.tar
+
 #tar -cf pdata.tar ~/P_DATA
 
 tar -cf ~/P_DATA/pdata.tar ~/P_DATA/*
