@@ -35,12 +35,13 @@ export PATH=$PATH:/Users/surangijayasinghe/668_Unix_project/~/RESULTS
 export PATH=$PATH:/Users/surangijayasinghe/668_Unix_project/~/RAW_DATA
 export PATH=$PATH:/Users/surangijayasinghe/668_Unix_project/~/P_DATA
 
-
-echo 'export PATH="$HOME/RAW_DATA:$HOME/P_DATA:$HOME/RESULTS:$PATH"' >> ~/.bashrc
-source ~/.bashrc
 ### (6) Write your entire $PATH, the text string RAW_DATA and the 
 ###    contents of this directory (the names of the files) into a new file 
 ###    called 'readme.txt' in your home directory
+
+#echo $PATH > readme.txt 
+
+
 echo "PATH: $PATH" > ~/readme.txt
 echo "RAW_DATA" >> ~/readme.txt
 ls -1 ~/RAW_DATA >> ~/readme.txt
