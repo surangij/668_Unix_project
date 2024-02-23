@@ -31,9 +31,13 @@ mkdir ~/RESULTS
 
 ### (5) Add all three directories to your $PATH: ~/RAW_DATA, ~/P_DATA
 ###     and ~/RESULTS
-export PATH=$PATH:/Users/surangijayasinghe/668_Unix_project/~/RESULTS
-export PATH=$PATH:/Users/surangijayasinghe/668_Unix_project/~/RAW_DATA
-export PATH=$PATH:/Users/surangijayasinghe/668_Unix_project/~/P_DATA
+#export PATH=$PATH:/Users/surangijayasinghe/668_Unix_project/~/RESULTS
+#export PATH=$PATH:/Users/surangijayasinghe/668_Unix_project/~/RAW_DATA
+#export PATH=$PATH:/Users/surangijayasinghe/668_Unix_project/~/P_DATA
+
+export PATH=$PATH:~/RAW_DATA
+export PATH=$PATH:~/P_DATA
+export PATH=$PATH:~/RESULTS
 
 ### (6) Write your entire $PATH, the text string RAW_DATA and the 
 ###    contents of this directory (the names of the files) into a new file 
@@ -41,10 +45,11 @@ export PATH=$PATH:/Users/surangijayasinghe/668_Unix_project/~/P_DATA
 
 #echo $PATH > readme.txt 
 
+echo $PATH > readme.txt
 
-echo "PATH: $PATH" > ~/readme.txt
-echo "RAW_DATA" >> ~/readme.txt
-ls -1 ~/RAW_DATA >> ~/readme.txt
+#echo "PATH: $PATH" > ~/readme.txt
+#echo "RAW_DATA" >> ~/readme.txt
+#ls -1 ~/RAW_DATA >> ~/readme.txt
 ### (7) The last command should output the contents of readme.txt
 ###     to the terminal.
 
