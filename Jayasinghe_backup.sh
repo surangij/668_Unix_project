@@ -21,7 +21,7 @@
 
 #BACKUP_DIR=“/Users/surangijayasinghe/BACKUP_FILES"
 BACKUP_DIR="$HOME/BACKUP_FILES"
-
+echo "Created BACKUP_FILES in $HOME directory"
 if [ ! -d "$BACKUP_DIR" ]; then
     mkdir "$BACKUP_DIR"
     echo "Created BACKUP_FILES in $HOME directory"
@@ -43,7 +43,7 @@ fi
 #  Hint: see the script 'convert_html_to_php.sh' at:
 #     https://ryanstutorials.net/bash-scripting-tutorial/bash-loops.php
 
-sourceDir= "$1"
+#sourceDir= "$1"
 BACKUP_DIR="$HOME/BACKUP_FILES"
 for file in "$source_Dir"/*; do
 	if [ -f "$file" ]; then
@@ -70,10 +70,10 @@ echo "$file copied to $HOME/BACKUP_FILES"
 
 print_info () {
  echo “Output of $HOME/BACKUP_FILES:”
- ls -al "$HOME/BACKUP_FILES"
+ ls -alh ~/BACKUP_FILES
 
  echo "Total disk usage of $HOME/BACKUP_FILES:"
- du -sh “$HOME/BACKUP_FILES”
+ du -sh ~/BACKUP_FILES
 }
 
 print_info
