@@ -50,6 +50,8 @@ echo $PATH > readme.txt
 #echo "PATH: $PATH" > ~/readme.txt
 #echo "RAW_DATA" >> ~/readme.txt
 #ls -1 ~/RAW_DATA >> ~/readme.txt
+
+
 ### (7) The last command should output the contents of readme.txt
 ###     to the terminal.
 
